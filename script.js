@@ -36,7 +36,7 @@ const showTemperature = (response) => {
        Humidity: <strong>${response.data.temperature.humidity}%</strong>, Wind: <strong>${Math.round(response.data.wind.speed)}km/h</strong>
   `
   weatherIcon.innerHTML = `    
-  <img src=${response.data.condition.icon_url} alt=${response.data.condition.icon}>  
+  <img src=${response.data.condition.icon_url} alt=${response.data.condition.icon} class="wIcon-img">  
   `
 
   console.log(response)
