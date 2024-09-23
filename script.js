@@ -4,7 +4,7 @@ const newCity = document.querySelector("#cityName");
 const date = document.querySelector(".date");
 const currentTemp = document.getElementById("currentTemp");
 const HumidWind = document.getElementById('HumidWind')
-
+const weatherIcon = document.querySelector('.weather-icon')
 // Date
 const currentDate = new Date();
 let day = currentDate.getDay();
@@ -34,6 +34,9 @@ const showTemperature = (response) => {
   date.textContent = `${days[day]} ${hour}:${minute}, ${response.data.condition.description}`;
   HumidWind.innerHTML = `
        Humidity: <strong>${response.data.temperature.humidity}%</strong>, Wind: <strong>${Math.round(response.data.wind.speed)}km/h</strong>
+  `
+  weatherIcon.innerHTML = `    
+  <img src=${response.data.condition.icon_url} alt=${response.data.condition.icon}>  
   `
 
   console.log(response)
