@@ -3,6 +3,7 @@ const currentCity = document.querySelector(".city");
 const newCity = document.querySelector("#cityName");
 const date = document.querySelector(".date");
 const currentTemp = document.getElementById("currentTemp");
+const HumidWind = document.getElementById('HumidWind')
 
 // Date
 const currentDate = new Date();
@@ -30,6 +31,12 @@ const getNameOnPage = (e) => {
 
 const showTemperature = (response) => {
   currentTemp.textContent = Math.round(response.data.temperature.current);
+  date.textContent = `${days[day]} ${hour}:${minute}, ${response.data.condition.description}`;
+  HumidWind.innerHTML = `
+       Humidity: <strong>${response.data.temperature.humidity}%</strong>, Wind: <strong>${Math.round(response.data.wind.speed)}km/h</strong>
+  `
+
+  console.log(response)
 };
 
 form.addEventListener("submit", getNameOnPage);
